@@ -61,22 +61,29 @@ ErrorCode new_mergeSortedLists(Node list1, Node list2, Node *merged_out)
 		if (temp1->x < temp2->x) {
 			new_list->x = temp1->x;
 			i++;
+			temp1 = temp1->next;
 		} else {
 			new_list->x = temp2->x;
 			j++;
+			temp2 = temp2->next;
 		}
 		new_list->next = createNode();
 		new_list = new_list->next;
 	}
+
+
 	while (i < list1_len) {
 		new_list->x = temp1->x;
 		i++;
+		temp1 = temp1->next;
 		new_list->next = createNode();
 		new_list = new_list->next;
 	}
+
 	while (j < list2_len) {
 		new_list->x = temp2->x;
 		j++;
+		temp2 = temp2->next;
 		new_list->next = createNode();
 		new_list = new_list->next;
 	}
