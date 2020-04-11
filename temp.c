@@ -68,6 +68,10 @@ ErrorCode new_mergeSortedLists(Node list1, Node list2, Node *merged_out)
 			temp2 = temp2->next;
 		}
 		new_list->next = createNode();
+		if (new_list->next == NULL) {
+			destroyList(merged_out);
+			return MEMORY_ERROR;
+		}
 		new_list = new_list->next;
 	}
 
@@ -77,6 +81,10 @@ ErrorCode new_mergeSortedLists(Node list1, Node list2, Node *merged_out)
 		i++;
 		temp1 = temp1->next;
 		new_list->next = createNode();
+		if (new_list->next == NULL) {
+			destroyList(merged_out);
+			return MEMORY_ERROR;
+		}
 		new_list = new_list->next;
 	}
 
@@ -85,6 +93,10 @@ ErrorCode new_mergeSortedLists(Node list1, Node list2, Node *merged_out)
 		j++;
 		temp2 = temp2->next;
 		new_list->next = createNode();
+		if (new_list->next == NULL) {
+			destroyList(merged_out);
+			return MEMORY_ERROR;
+		}
 		new_list = new_list->next;
 	}
 
